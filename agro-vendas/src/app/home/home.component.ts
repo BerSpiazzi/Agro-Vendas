@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,8 @@ import {RouterOutlet} from "@angular/router";
   imports: [
     MatSidenavModule,
     MatListModule,
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

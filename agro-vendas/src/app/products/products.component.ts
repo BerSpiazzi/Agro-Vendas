@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {CurrencyPipe} from "@angular/common";
+import {CommonModule, CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'app-products',
@@ -9,22 +9,18 @@ import {CurrencyPipe} from "@angular/common";
   imports: [
     MatInputModule,
     MatIconModule,
-    CurrencyPipe
-  ],
+    CurrencyPipe,
+    CommonModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
 
   products = [
-    {name: 'Produto 1', price: 19.99},
-    {name: 'Produto 2', price: 29.99},
-    {name: 'Produto 3', price: 39.99},
-    {name: 'Produto 4', price: 49.99},
-    {name: 'Produto 5', price: 59.99},
-    {name: 'Produto 6', price: 69.99},
-    {name: 'Produto 7', price: 79.99},
-    {name: 'Produto 8', price: 89.99},
-    {name: 'Produto 9', price: 99.99}
+    {name: 'Semente de Trigo', price: 30.99, image:'assets/semente-trigo.png'},
+    {name: 'Semente de Nabo', price: 55.50, image:'assets/semente-nabo.jpg'},
+    {name: 'Semente de Soja', price: 45.80, image:'assets/semente-soja.png'},
+    {name: 'Semente de Milho', price: 23.50, image:'assets/semente-milho.jpg'},
+    {name: 'Muda de Alface', price: 0.25, image:'assets/muda-alface.jpg'}
   ];
 }
