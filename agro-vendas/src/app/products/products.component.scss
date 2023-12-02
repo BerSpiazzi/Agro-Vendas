@@ -1,0 +1,35 @@
+/* products.component.scss */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.product-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.product-image {
+  /* Estilo da imagem do produto */
+  height: 100px; /* Ajuste conforme necessário */
+  background-color: #f0f0f0; /* Cor de fundo temporária */
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-weight: bold;
+}
