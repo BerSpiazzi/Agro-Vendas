@@ -1,17 +1,46 @@
-<div class="search-bar">
-  <mat-form-field appearance="fill">
-    <mat-label>Pesquisar Produtos</mat-label>
-    <input matInput>
-    <button mat-button matSuffix mat-icon-button aria-label="Pesquisar">
-      <mat-icon>search</mat-icon>
-    </button>
-  </mat-form-field>
-</div>
+<div class="main-container">
+  <div class="search-bar">
+    <mat-form-field appearance="fill">
+      <mat-label>Pesquisar Produtos</mat-label>
+      <input matInput [(ngModel)]="searchTerm">
+      <button mat-button matSuffix mat-icon-button aria-label="Pesquisar">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="product-container">
+    <div *ngFor="let product of filteredProducts" class="product-item"
+         (click)="selectProduct(product)" [class.selected]="isProductSelected(product)">
+      <div class="product-image"><img src="{{product.image}}" width="100px"></div>
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-price">{{ product.price | currency:'BRL' }}</div>
 
-<div class="product-container">
-  <div *ngFor="let product of products" class="product-item">
-    <div class="product-image"><img src="{{product.image}}" width="100px"></div>
-    <div class="product-name">{{ product.name }}</div>
-    <div class="product-price">{{ product.price | currency:'BRL' }}</div>
+      <input type="text" [(ngModel)]="quantities[product.id]" placeholder="Quantidade">
+      <button (click)="incrementQuantity(product.id)">+</button>
+      <button (click)="decrementQuantity(product.id)">-</button>
+    </div>
+  </div>
+
+  <div class="add-to-cart-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Pedido</mat-label>
+      <input matInput [(ngModel)]="nomePedido" placeholder="Digite o nome do pedido">
+    </mat-form-field>
+    <div class="button-container">
+      <button class="add-to-cart-button" (click)="addToSelectedItems()" [disabled]="!selectedProduct">Adicionar ao
+        Carrinho
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="selectedItems.length > 0" class="selected-items-container">
+    <h2>Itens no Carrinho</h2>
+    <div *ngFor="let selectedItem of selectedItems; let i = index">
+      {{ selectedItem.product.name }} - Quantidade: {{ selectedItem.quantity }}
+      <button (click)="removeFromSelectedItems(i)">Remover</button>
+    </div>
+    <button (click)="finishPurchase()">Finalizar Compra</button>
   </div>
 </div>
+
+

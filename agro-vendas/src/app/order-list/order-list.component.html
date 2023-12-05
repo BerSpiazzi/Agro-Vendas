@@ -1,1 +1,28 @@
-<p>order-list works!</p>
+<div class="main-container">
+
+  <div class="search-bar">
+    <mat-form-field appearance="fill">
+      <mat-label>Pesquisar Pedidos</mat-label>
+      <input matInput [(ngModel)]="searchTerm">
+      <button mat-button matSuffix mat-icon-button aria-label="Pesquisar">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="order-list-container">
+    <h2>Pedidos a serem entregues</h2>
+    <div *ngFor="let order of filteredProducts" class="order-item">
+      <div class="order-details">
+        <div class="order-name">{{ order.descricao }}</div>
+        <div class="order-products">
+          <div *ngFor="let product of order.produtos">
+            {{ product.name }} - Quantidade: {{ product.quantidade }}
+          </div>
+        </div>
+      </div>
+      <button (click)="deliverOrder(order)">Entregar Pedido</button>
+    </div>
+  </div>
+
+</div>
