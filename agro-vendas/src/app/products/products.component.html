@@ -9,6 +9,7 @@
     </mat-form-field>
   </div>
   <div class="product-container">
+    <div *ngIf="filteredProducts.length === 0" class="no-products-found">Nenhum produto encontrado</div>
     <div *ngFor="let product of filteredProducts" class="product-item"
          (click)="selectProduct(product)" [class.selected]="isProductSelected(product)">
       <div class="product-image"><img src="{{product.image}}" width="100px"></div>
@@ -21,7 +22,7 @@
     </div>
   </div>
 
-  <div class="add-to-cart-container">
+  <div *ngIf="selectedProduct || selectedItems.length > 0" class="add-to-cart-container">
     <mat-form-field appearance="fill">
       <mat-label>Nome do Pedido</mat-label>
       <input matInput [(ngModel)]="nomePedido" placeholder="Digite o nome do pedido">

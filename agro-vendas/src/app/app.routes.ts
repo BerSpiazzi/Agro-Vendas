@@ -4,8 +4,8 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from "./home/home.component";
 import {ProductsComponent} from "./products/products.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
-import {CheckoutComponent} from "./checkout/checkout.component";
 import {OrderListComponent} from "./order-list/order-list.component";
+import {ProductRegisterComponent} from "./product-register/product-register.component";
 
 export const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -15,7 +15,7 @@ export const routes: Routes = [
     children: [
       {path: 'products', component: ProductsComponent},
       {path: 'product-details', component: ProductDetailsComponent},
-      {path: 'checkout', component: CheckoutComponent},
+      {path: 'product-register', component: ProductRegisterComponent},
       {path: 'order-list', component: OrderListComponent}
     ]
   }

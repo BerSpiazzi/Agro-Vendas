@@ -36,7 +36,6 @@ export class OrderListComponent implements OnInit {
   }
 
   get filteredProducts() {
-    console.log(this.pedidos)
     return this.pedidos.filter(pedido =>
       pedido.descricao.toLowerCase().includes(this.searchTerm.toLowerCase())
     );

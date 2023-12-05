@@ -61,5 +61,10 @@
 }
 
 .product-item.selected {
-  border: 2px solid #007bff; // Ou a cor desejada
+  border: 2px solid #007bff;
+}
+
+.no-products-found {
+  margin: 20px;
+  font-weight: bold;
 }

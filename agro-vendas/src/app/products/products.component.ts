@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {CommonModule, CurrencyPipe} from "@angular/common";
@@ -19,7 +19,7 @@ import {Produto} from "../models/produto";
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
   selectedProduct: any;
   searchTerm: string = '';
@@ -29,13 +29,21 @@ export class ProductsComponent {
 
   selectedItems: { product: any, quantity: number }[] = [];
 
-  products: Produto[] = [
-    {id: 1, name: 'Semente de Trigo', price: 30.99, image: 'assets/semente-trigo.png'},
-    {id: 2, name: 'Semente de Nabo', price: 55.50, image: 'assets/semente-nabo.jpg'},
-    {id: 3, name: 'Semente de Soja', price: 45.80, image: 'assets/semente-soja.png'},
-    {id: 4, name: 'Semente de Milho', price: 23.50, image: 'assets/semente-milho.jpg'},
-    {id: 5, name: 'Muda de Alface', price: 0.25, image: 'assets/muda-alface.jpg'}
-  ];
+  products: Produto[] = [];
+
+  ngOnInit(): void {
+    this.loadProductsFromSessionStorage();
+  }
+
+  private loadProductsFromSessionStorage(): void {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      const storedItems = sessionStorage.getItem('products');
+
+      if (storedItems) {
+        this.products = JSON.parse(storedItems);
+      }
+    }
+  }
 
   get filteredProducts() {
     return this.products.filter(product =>
@@ -107,7 +115,6 @@ export class ProductsComponent {
       sessionStorage.setItem('pedido', pedidosJson);
       this.selectedItems = [];
 
-      console.log('Pedido:', pedidosJson);
       this.selectedItems = [];
       this.nomePedido = '';
       this.selectedProduct = null;

@@ -1,0 +1,20 @@
+<div class="product-register-container">
+  <h2>Cadastro de Produtos</h2>
+
+  <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" [(ngModel)]="newProduct.descricao"></textarea>
+
+    <label for="price">Preço:</label>
+    <input type="number" id="price" name="price" [(ngModel)]="newProduct.price" required>
+
+    <label for="image">Imagem:</label>
+    <input type="text" id="image" name="image" [(ngModel)]="newProduct.image" required>
+
+    <button type="submit">Cadastrar Produto</button>
+  </form>
+
+</div>
