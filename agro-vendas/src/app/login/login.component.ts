@@ -24,7 +24,7 @@ export class LoginComponent {
     if (this.authService.login(this.username, this.password)) {
       this.router.navigate(['/home']);
     } else {
-      console.log('Login falhou');
+      alert('Senha ou usuário inválidos');
     }
   }
 

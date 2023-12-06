@@ -1,13 +1,12 @@
-<!-- login.component.html -->
 <div class="container">
   <div class="card">
     <h2>Login</h2>
-    <form>
+    <form class="blurry-background">
       <label for="username">Username:</label>
-      <input type="text" id="username" [(ngModel)]="username"  [ngModelOptions]="{standalone: true}" />
+      <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" />
 
       <label for="password">Password:</label>
-      <input type="password" id="password" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}" />
+      <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
 
       <button (click)="login()">Login</button>
     </form>

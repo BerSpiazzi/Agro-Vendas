@@ -1,15 +1,16 @@
-/* login.component.css */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Define a altura total da viewport */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.808);
 }
 
 .card {
   width: 300px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(3, 141, 233, 0.842);
+  background: #ffffff79;
   border-radius: 8px;
 }
 
@@ -32,4 +33,9 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.blurry-background {
+  background: fixed;
+  backdrop-filter: blur(25px);
 }
