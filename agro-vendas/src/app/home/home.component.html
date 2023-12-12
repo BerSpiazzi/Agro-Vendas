@@ -1,10 +1,38 @@
+<mat-toolbar>
+  <div fxShow="true" fxHide.gt-xs>
+    <button mat-icon-button (click)="toggleDrawer()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxShow="true" style="margin-left: 50px;">
+    <img src="../../assets/logo/logo-horta-facil.png" alt="Logo" height="50px" style="margin-right: 10px;">
+  </div>
+  <div fxHide.lt-sm style="flex: 1; display: flex; align-items: center; justify-content: center;">
+    <span>Horta Fácil</span>
+  </div>
+  <div fxShow="true" fxHide.lt-sm>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+
 <mat-drawer-container class="drawer-container">
-  <mat-drawer mode="side" opened class="drawer">
+  <mat-drawer #drawer mode="side" opened class="drawer">
     <mat-nav-list>
-      <a mat-list-item routerLink="products">Produtos</a>
-      <a mat-list-item routerLink="product-details">Detalhes do Produto</a>
-      <a mat-list-item routerLink="product-register">Cadastro de Produtos</a>
-      <a mat-list-item routerLink="order-list">Lista de Pedidos</a>
+      <a mat-list-item routerLink="products">
+        <mat-icon>store</mat-icon>
+        Produtos</a>
+      <a mat-list-item routerLink="product-details">
+        <mat-icon>description</mat-icon>
+        Detalhes do Produto</a>
+      <a mat-list-item routerLink="product-register">
+        <mat-icon>add_box</mat-icon>
+        Cadastro de Produtos</a>
+      <a mat-list-item routerLink="order-list">
+        <mat-icon>shopping_cart</mat-icon>
+        Lista de Pedidos</a>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>

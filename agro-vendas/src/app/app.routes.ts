@@ -8,7 +8,8 @@ import {OrderListComponent} from "./order-list/order-list.component";
 import {ProductRegisterComponent} from "./product-register/product-register.component";
 
 export const routes: Routes = [
-  {path: '', component: LoginComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   {
     path: 'home',
     component: HomeComponent,

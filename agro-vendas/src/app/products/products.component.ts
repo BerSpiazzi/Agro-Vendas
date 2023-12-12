@@ -5,6 +5,7 @@ import {CommonModule, CurrencyPipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {Pedido} from "../models/pedido";
 import {Produto} from "../models/produto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products',
@@ -30,6 +31,9 @@ export class ProductsComponent implements OnInit {
   selectedItems: { product: any, quantity: number }[] = [];
 
   products: Produto[] = [];
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loadProductsFromSessionStorage();
@@ -120,5 +124,10 @@ export class ProductsComponent implements OnInit {
       this.selectedProduct = null;
       this.quantities = {};
     }
+  }
+
+  navigateNewRegister() {
+    const currentUrl = this.router.url.replace("/products", "");
+   this.router.navigate([currentUrl + '/product-register']).then(r => r)
   }
 }
