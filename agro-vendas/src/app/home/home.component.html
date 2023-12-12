@@ -5,7 +5,7 @@
     </button>
   </div>
   <div fxShow="true" style="margin-left: 50px;">
-    <img src="../../assets/logo/logo-horta-facil.png" alt="Logo" height="50px" style="margin-right: 10px;">
+    <img src="../../assets/logo/logo-horta-facil.png" (click)="toHome()" alt="Logo" height="50px" style="margin-right: 10px;">
   </div>
   <div fxHide.lt-sm style="flex: 1; display: flex; align-items: center; justify-content: center;">
     <span>Horta Fácil</span>
@@ -36,6 +36,23 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
+    <div *ngIf="isHome()" class="info-container">
+      <h1>Bem-vindo à Horta Fácil</h1>
+      <p>
+        Somos uma iniciativa dedicada ao cultivo e entrega de produtos orgânicos certificados pelo Ministério da Agricultura. Aqui está como funciona:
+      </p>
+      <ul>
+        <li>Clientes fazem pedidos pelo WhatsApp.</li>
+        <li>Pessoas que cultivam cadastram produtos e detalham informações.</li>
+        <li>Após a geração de pedidos, eles aparecem na lista de pedidos.</li>
+        <li>Roteiro de entrega é criado com base nos pedidos.</li>
+        <li>Cada entrega pode ser registrada e gerenciada no sistema.</li>
+      </ul>
+      <p>
+        Estamos comprometidos em fornecer produtos orgânicos frescos e saudáveis diretamente para você!
+      </p>
+    </div>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
+

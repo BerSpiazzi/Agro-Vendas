@@ -4,6 +4,7 @@ import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {Component, ViewChild} from "@angular/core";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import {Component, ViewChild} from "@angular/core";
     RouterOutlet,
     RouterLink,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgIf
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -35,4 +37,12 @@ export class HomeComponent {
   }
 
 
+  toHome() {
+
+    this.router.navigate(['/home']);
+  }
+
+  isHome() {
+    return this.router.isActive('/home', true);
+  }
 }
